@@ -28,13 +28,13 @@ elif [[ "$1" == "-path" ]]; then
 	echo "Copying images to current path"
 	cp $imPath/* ../Model/Data/Train/
 	if [[ "$4" == "Y" ]]; then
-		cd ../Model/Data/Train/
 		echo "Copying random images to Test folder"
 		shuf -zn10 -e ../Model/Data/Train/*_1.jpg | xargs -0 mv -vt ../Model/Data/Test/
 		shuf -zn10 -e ../Model/Data/Train/*_0.jpg | xargs -0 mv -vt ../Model/Data/Test/
-		cd -
 	elif [[ "$4" == "N" ]]; then
+		cd ../Model/Data/Train/
 		mv im006_1.jpg im020_1.jpg im024_1.jpg im026_1.jpg im028_1.jpg im031_1.jpg im035_0.jpg im041_0.jpg im047_0.jpg im053_1.jpg im057_1.jpg im060_1.jpg im063_1.jpg im069_0.jpg im074_0.jpg im088_0.jpg im095_0.jpg im099_0.jpg im101_0.jpg im106_0.jpg ../Test/
+		cd -
 	else
 		incorrect_usage
 	fi
